@@ -1,0 +1,146 @@
+:root {
+    --bg-color: #0b0c10;
+    --container-bg: #1f2833;
+    --text-main: #c5c6c7;
+    --highlight: #66fcf1;
+    --accent: #45a29e;
+    --magic-color: #9d4edd;
+    --hunt-color: #e63946;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: radial-gradient(circle at top, #1a1a2e, #0b0c10);
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(rgba(11, 12, 16, 0.8), rgba(11, 12, 16, 1)), url('https://www.transparenttextures.com/patterns/stardust.png');
+    border-bottom: 2px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.1);
+}
+
+h1 {
+    color: var(--highlight);
+    font-size: 3.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(102, 252, 241, 0.5);
+}
+
+.subtitle {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--container-bg);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(102, 252, 241, 0.2);
+}
+
+p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+h2 {
+    color: var(--highlight);
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 10px;
+}
+
+.split-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    flex: 1;
+    background: #151a22;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-magic {
+    border-left: 4px solid var(--magic-color);
+}
+
+.card-hunt {
+    border-left: 4px solid var(--hunt-color);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card-magic h3 { color: var(--magic-color); }
+.card-hunt h3 { color: var(--hunt-color); }
+
+.dashboard {
+    margin-top: 40px;
+    background: #0f1318;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px dashed var(--accent);
+}
+
+.status-bar-container {
+    margin-bottom: 20px;
+}
+
+.status-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.text-magic { color: var(--magic-color); }
+.text-hunt { color: var(--hunt-color); }
+
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.progress {
+    height: 100%;
+    border-radius: 12px;
+    transition: width 1.5s ease-in-out;
+}
+
+.progress-magic { background: linear-gradient(90deg, #5a189a, var(--magic-color)); width: 85%; }
+.progress-hunt { background: linear-gradient(90deg, #9d0208, var(--hunt-color)); width: 45%; }
+
+.level-badge {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--highlight);
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--highlight);
+}
