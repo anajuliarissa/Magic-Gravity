@@ -3,63 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Rocha Chuei - Códice Ancestral</title>
+    <title>A Rocha Chuei - Códice & Grimório</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="parchment-container">
-        <header class="medieval-header">
-            <div class="emblem">⚔️ 🔮 ⚔️</div>
-            <h1>A Rocha Chuei</h1>
-            <div class="subtitle">Escola Ancestral das Montanhas Nebulosas</div>
+    <div class="grimoire-wrapper">
+        
+        <!-- Cabeçalho e Selo Real -->
+        <header class="main-header">
+            <div class="wax-seal">⚡</div>
+            <h1 class="glow-title">A Rocha Chuei</h1>
+            <p class="subtitle">Escola Ancestral das Montanhas Nebulosas</p>
+            
+            <nav class="medieval-nav">
+                <button class="nav-btn active" onclick="switchTab('perfil')">📜 Ficha do Aluno</button>
+                <button class="nav-btn" onclick="switchTab('bestiario')">🐉 Bestiário</button>
+                <button class="nav-btn" onclick="switchTab('competicao')">🏆 Competição Anual</button>
+            </nav>
         </header>
 
-        <main>
-            <section class="lore-box">
-                <h2>✦ A Academia Ancestral ✦</h2>
-                <p>Nas profundezas das Montanhas Nebulosas ergue-se a Rocha Chuei, refúgio lendário onde jovens de diversas raças dominam as artes arcanas ao lado de majestosos grifos, fênixes e dragões. Sob a regência do Arquimago, as turmas preparam-se para a lendária Competição Anual.</p>
-                <p>A rivalidade arde entre as casas. Apenas as linhagens mais unidas conquistarão o troféu sagrado. Esta contenda revelará não apenas grandes talentos, mas também segredos há muito enterrados nas sombras do castelo.</p>
+        <!-- ABA 1: PERFIL E TREINAMENTO -->
+        <main id="tab-perfil" class="tab-content active">
+            
+            <section class="character-card">
+                <div class="avatar-frame">
+                    <div class="avatar-img">🧙‍♂️</div>
+                    <span class="rank-tag">Mago Iniciado</span>
+                </div>
+                
+                <div class="character-details">
+                    <h2>Aprendiz de Chuei</h2>
+                    <p class="lore-text">O aprendizado teórico sussurra em sua mente mesmo à distância, mas a bravura só é provada no confronto contra as feras nas montanhas.</p>
+                    
+                    <div class="level-box">
+                        <span>Nível Arcano: <strong id="player-level">12</strong></span>
+                        <div class="xp-bar-outer">
+                            <div class="xp-bar-inner" id="xp-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <div class="pillars-grid">
-                <article class="pillar magic-pillar">
-                    <h3>📜 Estudo da Magia</h3>
-                    <p>O saber teórico transcende distâncias. É como um sussurro ancestral ecoando perpetuamente nos salões da mente do aprendiz.</p>
+            <div class="dual-paths">
+                <!-- Estudo da Magia -->
+                <article class="path-card path-magic">
+                    <div class="card-icon">🔮</div>
+                    <h3>Estudo Astral (Teoria)</h3>
+                    <p>Conexão mental permanente com os ensinamentos do Arquimago Professor.</p>
+                    <div class="stat-group">
+                        <label>Sintonia Arcana: <span id="magic-val">85%</span></label>
+                        <div class="meter"><div class="fill magic-fill" id="magic-bar" style="width: 85%;"></div></div>
+                    </div>
+                    <button class="action-btn btn-magic" onclick="trainMagic()">Estudar Magia (+XP)</button>
                 </article>
 
-                <article class="pillar hunt-pillar">
-                    <h3>🐉 Caça aos Monstros</h3>
-                    <p>A glória exige sangue e bravura. Apenas na presença das feras e nos perigos das montanhas o verdadeiro poder se forja.</p>
+                <!-- Caça de Monstros -->
+                <article class="path-card path-hunt">
+                    <div class="card-icon">⚔️</div>
+                    <h3>Caça de Feras (Prática)</h3>
+                    <p>Exige presença física e coragem nas sombras das Montanhas Nebulosas.</p>
+                    <div class="stat-group">
+                        <label>Bravura em Combate: <span id="hunt-val">45%</span></label>
+                        <div class="meter"><div class="fill hunt-fill" id="hunt-bar" style="width: 45%;"></div></div>
+                    </div>
+                    <button class="action-btn btn-hunt" onclick="huntMonster()">Caçar Monstro (+XP)</button>
                 </article>
             </div>
 
-            <section class="grimoire-status">
-                <h2>✦ Registros do Grimório ✦</h2>
-                <div class="level-title">Mago Iniciado — Nível 12</div>
-
-                <div class="skill-track">
-                    <div class="skill-info">
-                        <span>Sintonia Arcana (Teoria)</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="bar-outer">
-                        <div class="bar-inner magic-bar"></div>
-                    </div>
-                </div>
-
-                <div class="skill-track">
-                    <div class="skill-info">
-                        <span>Bravura em Combate (Caça)</span>
-                        <span>45%</span>
-                    </div>
-                    <div class="bar-outer">
-                        <div class="bar-inner hunt-bar"></div>
-                    </div>
-                </div>
-            </section>
+            <div class="scroll-box">
+                <h4>⚠️ Segredos Ocultos dos Salões</h4>
+                <p>Rumores dizem que a Competição Anual deste ano despertará artefatos proibidos escondidos sob a rocha da academia...</p>
+            </div>
         </main>
+
+        <!-- ABA 2: BESTIÁRIO -->
+        <main id="tab-bestiario" class="tab-content">
+            <h2 class="section-heading">Criaturas das Montanhas Nebulosas</h2>
+            
+            <div class="beast-grid">
+                <div class="beast-card">
+                    <div class="beast-icon">🦅</div>
+                    <h3>Grifos Reais</h3>
+                    <span class="danger-level low">Perigo: Moderado</span>
+                    <p>Cavalgados pelos alunos mais ágeis para patrulhas aéreas e combate rápido.</p>
+                </div>
+
+                <div class="beast-card">
+                    <div class="beast-icon">🔥</div>
+                    <h3>Fênixes Arcanas</h3>
+                    <span class="danger-level medium">Perigo: Alto</span>
+                    <p>Acompanham os magos em rituais teóricos e possuem lágrimas de cura elemental.</p>
+                </div>
+
+                <div class="beast-card">
+                    <div class="beast-icon">🐲</div>
+                    <h3>Dragões Ancestrais</h3>
+                    <span class="danger-level high">Perigo: Extremo</span>
+                    <p>Habitam os picos gelados. Apenas equipes perfeitamente unidas conseguem dominá-los.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- ABA 3: COMPETIÇÃO ANUAL -->
+        <main id="tab-competicao" class="tab-content">
+            <h2 class="section-heading">Placar da Torneio Anual</h2>
+            
+            <table class="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Posição</th>
+                        <th>Família / Casa</th>
+                        <th>Vitórias</th>
+                        <th>Pontuação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="rank-1">
+                        <td>1º 🏆</td>
+                        <td>Casa Garra-de-Fênix</td>
+                        <td>14</td>
+                        <td>2.850 pts</td>
+                    </tr>
+                    <tr>
+                        <td>2º</td>
+                        <td>Casa Presa-de-Dragão</td>
+                        <td>12</td>
+                        <td>2.620 pts</td>
+                    </tr>
+                    <tr>
+                        <td>3º</td>
+                        <td>Casa Asas-de-Grifo</td>
+                        <td>9</td>
+                        <td>2.100 pts</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+
+        <footer>
+            <p>Supervisão: Arquimago Professor • Registrado sob a proteção da Rocha Chuei</p>
+        </footer>
+
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
