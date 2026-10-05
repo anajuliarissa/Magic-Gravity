@@ -1,314 +1,180 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=MedievalSharp&family=Cinzel:wght@600;900&display=swap');
 
 :root {
-    --bg-dark: #080605;
-    --parchment: #f1e2c3;
-    --parchment-border: #8c6d46;
-    --wood-dark: #22150c;
+    --stone-dark: #12100e;
+    --stone-wall: #211c18;
+    --parchment: #e8d5b5;
+    --parchment-border: #8a6c47;
     --gold: #d4af37;
-    --gold-glow: rgba(212, 175, 55, 0.4);
-    --crimson: #8b0000;
-    --purple-magic: #6a0dad;
-    --ink: #1c130d;
+    --gold-glow: #ffe57f;
+    --crimson: #7a1515;
+    --iron: #3a3b3c;
+    --ink: #1f140e;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 30px 10px;
-    background-color: var(--bg-dark);
-    background-image: radial-gradient(#1a110b 15%, transparent 16%);
-    background-size: 30px 30px;
-    font-family: 'MedievalSharp', cursive, serif;
-    color: var(--ink);
-    display: flex;
-    justify-content: center;
-}
-
-/* Estrutura Principal estilo Livro/Grimório */
-.grimoire-wrapper {
-    max-width: 900px;
-    width: 100%;
-    background: var(--parchment);
-    border: 12px solid var(--wood-dark);
-    outline: 3px solid var(--gold);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), inset 0 0 60px rgba(140, 109, 70, 0.6);
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
-}
-
-/* Selo de Cera */
-.wax-seal {
-    width: 50px;
-    height: 50px;
-    background: var(--crimson);
-    color: var(--gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin: 0 auto 10px auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5), inset 0 0 8px rgba(0,0,0,0.4);
-    border: 2px dashed var(--gold);
-}
-
-.main-header {
-    text-align: center;
-    border-bottom: 2px double var(--parchment-border);
-    padding-bottom: 20px;
-}
-
-.glow-title {
-    font-family: 'Cinzel', serif;
-    font-size: 3rem;
-    color: var(--crimson);
-    margin: 0;
-    text-shadow: 2px 2px 0px var(--gold);
-    text-transform: uppercase;
-}
-
-.subtitle {
-    margin: 5px 0 20px 0;
-    font-style: italic;
-    color: #5a432e;
-}
-
-/* Navegação por Abas */
-.medieval-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.nav-btn {
-    background: var(--wood-dark);
+    padding: 0;
+    background-color: var(--stone-dark);
+    /* Textura simulação de muralha de pedra */
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15), transparent 70%),
+        linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+        url('https://www.transparenttextures.com/patterns/dark-brick-wall.png');
     color: var(--parchment);
-    border: 2px solid var(--gold);
-    padding: 10px 20px;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s;
+    font-family: 'MedievalSharp', cursive, serif;
+    min-height: 100vh;
 }
 
-.nav-btn:hover, .nav-btn.active {
+/* Navegação - Menu do Castelo */
+.castle-nav {
+    background: var(--stone-wall);
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.castle-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.castle-nav a {
+    color: var(--parchment);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 2px solid var(--parchment-border);
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.castle-nav a:hover, .castle-nav a.active {
+    color: var(--gold);
+    border-color: var(--gold);
     background: var(--crimson);
-    color: #fff;
-    box-shadow: 0 0 10px var(--gold-glow);
+    box-shadow: 0 0 15px var(--gold-glow);
     transform: translateY(-2px);
 }
 
-/* Conteúdo das Abas */
-.tab-content {
-    display: none;
-    margin-top: 30px;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Card do Personagem */
-.character-card {
-    display: flex;
-    gap: 20px;
-    background: rgba(140, 109, 70, 0.15);
-    border: 2px solid var(--parchment-border);
+/* Container Estrutural */
+.castle-container {
+    max-width: 1000px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 6px;
-    align-items: center;
 }
 
-.avatar-frame {
+/* Banner do Castelo */
+.banner {
     text-align: center;
+    background: linear-gradient(180deg, var(--crimson) 0%, #3b0a0a 100%);
+    border: 4px solid var(--gold);
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 
-.avatar-img {
-    font-size: 4rem;
-    background: var(--wood-dark);
-    width: 90px;
-    height: 90px;
+.banner h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin: 0;
+    text-shadow: 3px 3px 0 #000;
+}
+
+.banner .tagline {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--parchment);
+    margin-top: 10px;
+}
+
+/* Quadro de Pergaminho */
+.parchment-scroll {
+    background: var(--parchment);
+    color: var(--ink);
+    border: 10px solid var(--parchment-border);
+    outline: 2px solid var(--gold);
+    padding: 35px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
+
+.parchment-scroll h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--crimson);
+    border-bottom: 2px solid var(--parchment-border);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.parchment-scroll p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Grids e Cartões */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+}
+
+.stone-card {
+    background: var(--stone-wall);
+    border: 3px solid var(--parchment-border);
+    padding: 25px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.stone-card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    margin-top: 0;
+}
+
+/* Elementos Especiais */
+.seal {
+    width: 60px;
+    height: 60px;
+    background: var(--crimson);
+    border: 2px dashed var(--gold);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    border: 3px solid var(--gold);
-}
-
-.rank-tag {
-    display: inline-block;
-    margin-top: 8px;
-    background: var(--crimson);
-    color: white;
-    font-size: 0.8rem;
-    padding: 2px 8px;
-    border-radius: 10px;
-}
-
-.character-details {
-    flex: 1;
-}
-
-.character-details h2 {
-    margin: 0 0 5px 0;
-    font-family: 'Cinzel', serif;
-    color: var(--crimson);
-}
-
-.level-box {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.xp-bar-outer {
-    width: 100%;
-    height: 14px;
-    background: #ccc;
-    border: 1px solid var(--wood-dark);
-    margin-top: 5px;
-    border-radius: 7px;
-    overflow: hidden;
-}
-
-.xp-bar-inner {
-    height: 100%;
-    background: linear-gradient(90deg, var(--gold), #ff8c00);
-    transition: width 0.4s ease;
-}
-
-/* Caminhos Duplos: Magia e Caça */
-.dual-paths {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 25px;
-}
-
-.path-card {
-    background: rgba(255, 255, 255, 0.4);
-    border: 2px solid var(--parchment-border);
-    padding: 20px;
-    text-align: center;
-    border-radius: 6px;
-}
-
-.card-icon {
-    font-size: 2.5rem;
-}
-
-.path-card h3 {
-    font-family: 'Cinzel', serif;
-    margin: 10px 0;
-}
-
-.path-magic h3 { color: var(--purple-magic); }
-.path-hunt h3 { color: var(--crimson); }
-
-.stat-group {
-    margin: 15px 0;
-    text-align: left;
-}
-
-.meter {
-    height: 16px;
-    background: #d0c0a0;
-    border: 1px solid var(--wood-dark);
-    margin-top: 4px;
-}
-
-.fill { height: 100%; transition: width 0.3s; }
-.magic-fill { background: var(--purple-magic); }
-.hunt-fill { background: var(--crimson); }
-
-.action-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    color: white;
-    font-family: 'Cinzel', serif;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.btn-magic { background: var(--purple-magic); }
-.btn-hunt { background: var(--crimson); }
-.action-btn:active { transform: scale(0.98); }
-
-/* Caixa de Rolamento / Segredos */
-.scroll-box {
-    margin-top: 25px;
-    background: #e2d2ad;
-    border-left: 5px solid var(--gold);
-    padding: 15px 20px;
-    font-style: italic;
-}
-
-/* Bestiário Grid */
-.beast-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.beast-card {
-    background: rgba(140, 109, 70, 0.1);
-    border: 2px dashed var(--parchment-border);
-    padding: 20px;
-    text-align: center;
-}
-
-.beast-icon { font-size: 3rem; }
-
-.danger-level {
-    font-size: 0.85rem;
-    font-weight: bold;
-    padding: 3px 8px;
-    display: inline-block;
-    margin-bottom: 10px;
-}
-
-.danger-level.low { background: #d4edda; color: #155724; }
-.danger-level.medium { background: #fff3cd; color: #856404; }
-.danger-level.high { background: #f8d7da; color: #721c24; }
-
-/* Tabela de Liderança */
-.leaderboard {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.leaderboard th, .leaderboard td {
-    padding: 12px;
-    border: 1px solid var(--parchment-border);
-    text-align: center;
-}
-
-.leaderboard th {
-    background: var(--wood-dark);
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-}
-
-.rank-1 {
-    background: rgba(212, 175, 55, 0.25);
-    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 0 auto 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
 footer {
     text-align: center;
-    margin-top: 40px;
+    padding: 30px;
+    border-top: 2px solid var(--parchment-border);
+    color: #888;
     font-size: 0.9rem;
-    color: #6c533c;
-    border-top: 1px solid var(--parchment-border);
-    padding-top: 15px;
-}
-
-@media (max-width: 650px) {
-    .character-card, .dual-paths {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
 }
