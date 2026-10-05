@@ -3,61 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Rocha Chuei - Academia de Magia</title>
-    <!-- Aqui nós chamamos o arquivo CSS externo -->
+    <title>A Rocha Chuei - Códice Ancestral</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>A Rocha Chuei</h1>
-        <div class="subtitle">Oculta nas Montanhas Nebulosas</div>
-    </header>
+    <div class="parchment-container">
+        <header class="medieval-header">
+            <div class="emblem">⚔️ 🔮 ⚔️</div>
+            <h1>A Rocha Chuei</h1>
+            <div class="subtitle">Escola Ancestral das Montanhas Nebulosas</div>
+        </header>
 
-    <div class="container">
-        <section class="lore">
-            <h2>A Academia Ancestral</h2>
-            <p>Bem-vindo à Rocha Chuei, o berço da magia. Aqui, jovens de diversas raças aprendem os segredos do universo ao lado de criaturas majestosas como grifos, fênixes e dragões. Sob a atenta supervisão do Arquimago Professor, nossas turmas se preparam para a aguardada Competição Anual.</p>
-            <p>A rivalidade arde nos corredores de pedra. Apenas as famílias mais habilidosas e unidas terão o privilégio de erguer o troféu. Contudo, esta disputa promoverá não apenas a exibição de talentos inigualáveis, mas também despertará segredos ocultos e esquecidos entre os alunos.</p>
-        </section>
+        <main>
+            <section class="lore-box">
+                <h2>✦ A Academia Ancestral ✦</h2>
+                <p>Nas profundezas das Montanhas Nebulosas ergue-se a Rocha Chuei, refúgio lendário onde jovens de diversas raças dominam as artes arcanas ao lado de majestosos grifos, fênixes e dragões. Sob a regência do Arquimago, as turmas preparam-se para a lendária Competição Anual.</p>
+                <p>A rivalidade arde entre as casas. Apenas as linhagens mais unidas conquistarão o troféu sagrado. Esta contenda revelará não apenas grandes talentos, mas também segredos há muito enterrados nas sombras do castelo.</p>
+            </section>
 
-        <section class="split-section">
-            <div class="card card-magic">
-                <h3>O Estudo da Magia</h3>
-                <p>O aprendizado teórico transcende o espaço. Ele acontece de forma constante, mesmo à distância, manifestando-se como um sussurro de sabedoria que nunca se cala em sua mente.</p>
-            </div>
-            
-            <div class="card card-hunt">
-                <h3>A Caça de Monstros</h3>
-                <p>A teoria não sobrevive sem a prática. A caça exige coragem absoluta e presença física. Enfrente as feras das Montanhas para forjar seu espírito e provar seu valor.</p>
-            </div>
-        </section>
+            <div class="pillars-grid">
+                <article class="pillar magic-pillar">
+                    <h3>📜 Estudo da Magia</h3>
+                    <p>O saber teórico transcende distâncias. É como um sussurro ancestral ecoando perpetuamente nos salões da mente do aprendiz.</p>
+                </article>
 
-        <section class="dashboard">
-            <div class="level-badge">
-                Nível do Aluno: <strong>Mago Iniciado (Nv. 12)</strong>
-            </div>
-            
-            <div class="status-bar-container">
-                <div class="status-label">
-                    <span class="text-magic">Sintonia Arcana (Teoria)</span>
-                    <span>85%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress progress-magic"></div>
-                </div>
+                <article class="pillar hunt-pillar">
+                    <h3>🐉 Caça aos Monstros</h3>
+                    <p>A glória exige sangue e bravura. Apenas na presença das feras e nos perigos das montanhas o verdadeiro poder se forja.</p>
+                </article>
             </div>
 
-            <div class="status-bar-container">
-                <div class="status-label">
-                    <span class="text-hunt">Bravura em Combate (Caça)</span>
-                    <span>45%</span>
+            <section class="grimoire-status">
+                <h2>✦ Registros do Grimório ✦</h2>
+                <div class="level-title">Mago Iniciado — Nível 12</div>
+
+                <div class="skill-track">
+                    <div class="skill-info">
+                        <span>Sintonia Arcana (Teoria)</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner magic-bar"></div>
+                    </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress progress-hunt"></div>
+
+                <div class="skill-track">
+                    <div class="skill-info">
+                        <span>Bravura em Combate (Caça)</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner hunt-bar"></div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
     </div>
 
 </body>

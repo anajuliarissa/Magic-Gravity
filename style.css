@@ -1,146 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=MedievalSharp&display=swap');
+
 :root {
-    --bg-color: #0b0c10;
-    --container-bg: #1f2833;
-    --text-main: #c5c6c7;
-    --highlight: #66fcf1;
-    --accent: #45a29e;
-    --magic-color: #9d4edd;
-    --hunt-color: #e63946;
+    --parchment-bg: #f4e8c1;
+    --parchment-dark: #e5d3a1;
+    --ink-color: #2b1e16;
+    --gold-accent: #b8860b;
+    --gold-light: #d4af37;
+    --crimson: #7a1c1c;
+    --arcane-purple: #4a2574;
+    --border-color: #5c4033;
 }
 
 body {
-    font-family: 'Georgia', serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
     margin: 0;
-    padding: 0;
+    padding: 40px 20px;
+    background-color: #120c09;
+    background-image: radial-gradient(#2b1e16 1px, transparent 0);
+    background-size: 20px 20px;
+    color: var(--ink-color);
+    font-family: 'MedievalSharp', cursive, serif;
     line-height: 1.6;
-    background-image: radial-gradient(circle at top, #1a1a2e, #0b0c10);
-    min-height: 100vh;
 }
 
-header {
+.parchment-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--parchment-bg);
+    background-image: radial-gradient(var(--parchment-dark) 10%, transparent 11%);
+    background-size: 10px 10px;
+    padding: 40px;
+    border: 12px solid var(--border-color);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(92, 64, 51, 0.5);
+    outline: 3px solid var(--gold-accent);
+    position: relative;
+}
+
+.medieval-header {
     text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(rgba(11, 12, 16, 0.8), rgba(11, 12, 16, 1)), url('https://www.transparenttextures.com/patterns/stardust.png');
-    border-bottom: 2px solid var(--accent);
-    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.1);
+    border-bottom: 2px double var(--border-color);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.emblem {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 h1 {
-    color: var(--highlight);
-    font-size: 3.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--crimson);
     margin: 0;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    text-shadow: 0 0 15px rgba(102, 252, 241, 0.5);
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 0px var(--gold-light);
 }
 
 .subtitle {
     font-style: italic;
-    color: var(--accent);
+    color: var(--border-color);
     font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: var(--container-bg);
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(102, 252, 241, 0.2);
-}
-
-p {
-    font-size: 1.1rem;
-    text-align: justify;
+    margin-top: 5px;
 }
 
 h2 {
-    color: var(--highlight);
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 10px;
-}
-
-.split-section {
-    display: flex;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-.card {
-    flex: 1;
-    background: #151a22;
-    padding: 20px;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-magic {
-    border-left: 4px solid var(--magic-color);
-}
-
-.card-hunt {
-    border-left: 4px solid var(--hunt-color);
-}
-
-.card h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--crimson);
+    text-align: center;
+    border-bottom: 1px solid var(--gold-accent);
+    padding-bottom: 8px;
     margin-top: 0;
 }
 
-.card-magic h3 { color: var(--magic-color); }
-.card-hunt h3 { color: var(--hunt-color); }
-
-.dashboard {
-    margin-top: 40px;
-    background: #0f1318;
-    padding: 25px;
-    border-radius: 8px;
-    border: 1px dashed var(--accent);
+p {
+    font-size: 1.15rem;
+    text-align: justify;
+    text-indent: 20px;
 }
 
-.status-bar-container {
+.pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+@media (max-width: 600px) {
+    .pillars-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pillar {
+    background: rgba(229, 211, 161, 0.5);
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0px var(--border-color);
+}
+
+.pillar h3 {
+    font-family: 'Cinzel', serif;
+    margin-top: 0;
+}
+
+.magic-pillar h3 { color: var(--arcane-purple); }
+.hunt-pillar h3 { color: var(--crimson); }
+
+.grimoire-status {
+    margin-top: 40px;
+    border: 2px dashed var(--border-color);
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.level-title {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--crimson);
     margin-bottom: 20px;
 }
 
-.status-label {
+.skill-track {
+    margin-bottom: 15px;
+}
+
+.skill-info {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.text-magic { color: var(--magic-color); }
-.text-hunt { color: var(--hunt-color); }
-
-.progress-bar {
+.bar-outer {
     width: 100%;
-    height: 25px;
-    background-color: #2a2a2a;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    height: 20px;
+    background-color: var(--parchment-dark);
+    border: 2px solid var(--border-color);
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.3);
 }
 
-.progress {
+.bar-inner {
     height: 100%;
-    border-radius: 12px;
-    transition: width 1.5s ease-in-out;
 }
 
-.progress-magic { background: linear-gradient(90deg, #5a189a, var(--magic-color)); width: 85%; }
-.progress-hunt { background: linear-gradient(90deg, #9d0208, var(--hunt-color)); width: 45%; }
+.magic-bar {
+    width: 85%;
+    background-color: var(--arcane-purple);
+}
 
-.level-badge {
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--highlight);
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px var(--highlight);
+.hunt-bar {
+    width: 45%;
+    background-color: var(--crimson);
 }
